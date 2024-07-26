@@ -14,7 +14,7 @@ session.commit()
 # Create a new post
 new_post = Post(title='First Post', content='This is my first post.', author=new_user_2)
 session.add(new_post)
-session.commit()
+session.commit() # commit method saves the changes to the database
 
 #create a second post
 new_post = Post(title='Second Post', content='This is my second post.', author=new_user_2)
@@ -23,7 +23,8 @@ session.commit()
 
 
 # Read users and their posts
-users = session.query(User).all()
+# query method is used to retrieve data from the database.
+users = session.query(User).all() 
 for user in users:
     print(user)
     for post in user.posts:
@@ -38,3 +39,4 @@ session.commit()
 post_to_delete = session.query(Post).filter_by(title='First Post').first()
 session.delete(post_to_delete)
 session.commit()
+

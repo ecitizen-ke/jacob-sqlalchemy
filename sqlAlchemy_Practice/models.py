@@ -11,7 +11,8 @@ class User(Base):
     name = Column(String(50))
     email = Column(String(100), unique=True)
     posts = relationship("Post", back_populates="author")
- 
+
+ #User class represents the users table 
 class Post(Base):
     __tablename__ = 'posts'
  
@@ -23,3 +24,5 @@ class Post(Base):
  
     def __repr__(self):
         return f"<Post(title='{self.title}', content='{self.content}')>"
+    
+    
